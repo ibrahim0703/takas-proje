@@ -6,7 +6,7 @@ export default function ResultsTable({ sonuclar, filtre, setFiltre, onRowClick }
   if (!sonuclar.length) return <div className="empty-box">Sonuç bulunamadı.</div>;
 
   const esit = sonuclar.filter((r) => r.status === "EQUAL").length;
-  const farkli = sonuclar.filter((r) => r.status === "DIFFERENT").length;
+  const farkli = sonuclar.filter((r) => r.status === "DIFFERENT" || r.status === "ONLY_IN_DB1" || r.status === "ONLY_IN_DB2" ).length;
 
   // Filtre: ALL hepsi, EQUAL sadece eşit, DIFFERENT eşit olmayan her şey
   const gorunen = sonuclar.filter((r) =>
